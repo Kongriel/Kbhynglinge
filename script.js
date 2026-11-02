@@ -36,7 +36,7 @@ const formError = document.querySelector("#formError");
 // 1.2 = 20 % hurtigere
 // 1.5 = 50 % hurtigere
 
-const danceSpeed = 1.2;
+const danceSpeed = 1.3;
 
 // Kontroller brugerens animationsindstillinger
 
