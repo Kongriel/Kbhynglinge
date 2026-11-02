@@ -21,7 +21,7 @@ body {
   margin: 0;
   font-family: "DM Sans", sans-serif;
   color: var(--ink);
-  background: #4a080d;
+  background: var(--cream);
 }
 h1,
 h2,
@@ -48,6 +48,7 @@ input {
   background:
     linear-gradient(145deg, rgba(41, 2, 15, 0.82), rgba(99, 9, 39, 0.75)),
     url("/assets/background.jpg") center/cover;
+  background-color: #4a080d;
 }
 .splash-content {
   width: min(100%, 480px);
