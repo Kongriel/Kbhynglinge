@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#570f21" />
+  <title>KBH Ynglinge – Admin</title>
+  <link rel="stylesheet" href="/admin/admin.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="/config.js"></script>
+  <script defer src="/admin/admin.js"></script>
+</head>
+<body>
+  <main>
+    <section id="loginView" class="login-view" hidden>
+      <form id="loginForm" class="login-card">
+        <div class="logo-chip">KY</div>
+        <p class="kicker">KBH YNGLINGE · ADMIN</p>
+        <h1>Velkommen tilbage.</h1>
+        <p>Log ind for at se besvarelser fra sæson 26/27.</p>
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="din@mail.dk" autocomplete="username" required />
+        <label for="password">Adgangskode</label>
+        <input id="password" type="password" placeholder="Din adgangskode" autocomplete="current-password" required />
+        <p id="loginError" class="error" role="alert" hidden></p>
+        <button id="loginBtn" type="submit" class="btn dark">Log ind</button>
+      </form>
+    </section>
+
+    <section id="dashboardView" class="dashboard" hidden>
+      <header class="topbar">
+        <div><p class="kicker">KBH YNGLINGE · 26/27</p><h1>Besvarelser</h1><p class="sub">Foreningsaktivitet og Aspirantstævne</p></div>
+        <button id="logoutBtn" class="btn outline">Log ud</button>
+      </header>
+      <div class="stats">
+        <article><span>Besvarelser i alt</span><strong id="statTotal">–</strong></article>
+        <article><span>Foreningsaktive</span><strong id="statActive">–</strong></article>
+        <article><span>Ønsker hjælp</span><strong id="statInactive">–</strong></article>
+        <article><span>Til Aspirantstævne</span><strong id="statAspirant">–</strong></article>
+      </div>
+      <section class="panel">
+        <div class="panel-head"><div><h2>Alle svar</h2><p id="resultCount">Henter besvarelser…</p></div><div class="actions"><button id="refreshBtn" class="btn outline">Opdater</button><button id="exportBtn" class="btn dark">Download CSV</button></div></div>
+        <div class="filters">
+          <label>Søg navn eller forening<input id="searchInput" type="search" placeholder="Søg i besvarelser…" /></label>
+          <label>Foreningsaktiv<select id="activeFilter"><option value="all">Alle</option><option value="yes">Ja</option><option value="no">Nej</option></select></label>
+          <label>Aktivitet / ønske<select id="roleFilter"><option value="all">Alle</option><option value="instructor">Instruktør</option><option value="gymnast">Gymnast på hold</option><option value="board">Bestyrelse</option><option value="dgi_committee">Udvalg i DGI</option><option value="want_gymnast">Ønsker at være gymnast</option><option value="want_instructor">Ønsker at være instruktør</option><option value="want_dgi_committee">Ønsker DGI-udvalg</option></select></label>
+          <label>Billeder/video<select id="mediaFilter"><option value="all">Alle</option><option value="yes">Ja</option><option value="no">Nej</option></select></label>
+          <label>Aspirantstævne<select id="aspirantFilter"><option value="all">Alle</option><option value="yes">Ja</option><option value="no">Nej</option></select></label>
+        </div>
+        <p id="dashboardError" class="error" role="alert" hidden></p>
+        <div class="table-scroll"><table><thead><tr><th>Modtaget</th><th>Navn</th><th>Alder</th><th>Aktiv?</th><th>Aktiviteter / ønsker</th><th>Forening</th><th>Medie</th><th>Aspirant</th></tr></thead><tbody id="tableBody"></tbody></table></div>
+        <div id="mobileCards" class="mobile-cards"></div>
+        <p id="emptyState" class="empty" hidden>Ingen besvarelser matcher dine filtre.</p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
