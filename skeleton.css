@@ -1,0 +1,960 @@
+/* Dancing Skeleton CSS by Kia8 (CodePen vVrZGZ), scoped for KBH Ynglinge. */
+#splashScreen {
+  --color-background: #837391;
+  --color-primary: #d8d1c0;
+  --color-secondary: #a99378;
+  --color-tertiary: #272728;
+  --color-shadow: #695c74;
+}
+#splashScreen .wrapper,
+#splashScreen .wrapper *,
+#splashScreen .wrapper *::before,
+#splashScreen .wrapper *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#splashScreen .wrapper *::after,
+#splashScreen .wrapper *::before {
+  content: "";
+}
+#splashScreen .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+#splashScreen .skeleton {
+  width: 12rem;
+  height: 20rem;
+  position: relative;
+}
+/* Head */
+#splashScreen .head {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 43%;
+  animation: skeletonJump 0.5s 4s ease-in-out forwards;
+}
+#splashScreen .head::before {
+  position: absolute;
+  top: 0.1rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 30%;
+  height: 50%;
+  background: var(--color-primary);
+  z-index: -2;
+}
+#splashScreen .head-hemispheres {
+  position: absolute;
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+  z-index: -2;
+}
+#splashScreen .head-hemispheres::before,
+#splashScreen .head-hemispheres::after {
+  width: 75%;
+  height: 110%;
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+#splashScreen .head-hemispheres::before {
+  left: 0;
+}
+#splashScreen .head-hemispheres::after {
+  right: 0;
+}
+#splashScreen .eye {
+  position: absolute;
+  width: 2.8rem;
+  height: 2.8rem;
+  background: var(--color-tertiary);
+  border-radius: 50%;
+  bottom: 30%;
+  z-index: 2;
+}
+#splashScreen .eye-shadow {
+  position: absolute;
+  bottom: calc(30% + 0.3rem);
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  z-index: 1;
+}
+#splashScreen .eye-left,
+#splashScreen .eye-shadow-left {
+  left: 20%;
+  animation:
+    faceX1 0.7s 1s forwards,
+    faceX2 0.7s 1.8s ease-out forwards,
+    faceX3 0.7s 2.7s forwards;
+}
+#splashScreen .eye-right,
+#splashScreen .eye-shadow-right {
+  right: 20%;
+  animation:
+    faceX1 0.7s 1s forwards,
+    faceX2 0.7s 1.8s forwards,
+    faceX3 0.7s 2.7s ease-out forwards;
+}
+#splashScreen .nose {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1.3rem;
+  height: 0.7rem;
+  background: var(--color-tertiary);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  z-index: 1;
+  animation:
+    faceX1 0.7s 1s forwards,
+    faceX2 0.7s 1.8s forwards,
+    faceX3 0.7s 2.7s forwards;
+}
+#splashScreen .nose-shadow {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1.3rem;
+  height: 1.1rem;
+  background: var(--color-secondary);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  animation:
+    faceX1 0.7s 1s forwards,
+    faceX2 0.7s 1.8s forwards,
+    faceX3 0.7s 2.7s forwards;
+}
+#splashScreen .mouth {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background: var(--color-primary);
+  width: 50%;
+  height: 16%;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+}
+#splashScreen .teeth {
+  position: absolute;
+  bottom: 0;
+  width: 0.4rem;
+  height: 1rem;
+  background: var(--color-secondary);
+  border-radius: 3rem 3rem 0 0;
+  animation:
+    faceX1 0.7s 1s forwards,
+    faceX2 0.7s 1.8s forwards,
+    faceX3 0.7s 2.7s forwards;
+}
+#splashScreen .teeth-left {
+  left: 34%;
+}
+#splashScreen .teeth-right {
+  right: 34%;
+}
+/* backbone and body */
+#splashScreen .below-head-container {
+  width: 75%;
+  left: 12.5%;
+  position: absolute;
+  height: 57%;
+  bottom: 0;
+}
+#splashScreen .backbone {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 0;
+  height: 45%;
+  width: 1rem;
+  background: var(--color-secondary);
+  animation: skeletonJump 0.5s 4s ease-in-out forwards;
+}
+#splashScreen .backbone::before {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 3rem);
+  border-radius: 1rem;
+  height: 90%;
+  background: var(--color-secondary);
+}
+#splashScreen .body {
+  position: absolute;
+  top: calc(0.2 * 45%);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+/* Primary Body Skeleton */
+#splashScreen .body-inner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 62%;
+  animation: skeletonJump 0.5s 4s ease-in-out forwards;
+}
+#splashScreen .main-bone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1rem;
+  height: 95%;
+  background: var(--color-primary);
+}
+#splashScreen .shoulder {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 2.2rem;
+  border-radius: 2rem;
+  background: var(--color-primary);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+#splashScreen .rib-cage {
+  position: absolute;
+  width: 1rem;
+  height: 0.8rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+#splashScreen .rib-cage-1 {
+  top: 1.5rem;
+}
+#splashScreen .rib-cage-2 {
+  top: 2.8rem;
+}
+#splashScreen .rib-cage::before {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  height: 100%;
+  width: 2.7rem;
+  background: var(--color-primary);
+  transform: skew(0, 10deg);
+}
+#splashScreen .rib-cage::after {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  height: 100%;
+  width: 2.7rem;
+  background: var(--color-primary);
+  transform: skew(0, -10deg);
+}
+#splashScreen .kidney-cover {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5.7rem;
+  height: 5.7rem;
+  border-radius: 50%;
+  opacity: 1;
+  z-index: 1;
+  background: var(--color-primary);
+  clip-path: polygon(0 80%, 100% 80%, 100% 100%, 0 100%);
+}
+#splashScreen .kidney {
+  position: absolute;
+  bottom: -0.3rem;
+  width: 2.8rem;
+  height: 1.5rem;
+  background: red;
+  border-radius: 1rem;
+  background: var(--color-primary);
+  z-index: 1;
+}
+#splashScreen .kidney-left {
+  right: 50%;
+  transform-origin: right center;
+  transform: rotate(35deg);
+}
+#splashScreen .kidney-right {
+  left: 50%;
+  transform-origin: left center;
+  transform: rotate(-35deg);
+}
+/* Hands */
+#splashScreen .hand {
+  position: absolute;
+  top: 0;
+  width: 1.5rem;
+  height: calc(100% + 1.5rem);
+}
+#splashScreen .hand-left {
+  left: -1.4rem;
+}
+#splashScreen .hand-right {
+  right: -1.4rem;
+}
+#splashScreen .hand-top {
+  position: absolute;
+  top: 0;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+}
+#splashScreen .arm,
+#splashScreen .forearm {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1rem;
+  height: 2.2rem;
+  background: var(--color-primary);
+}
+#splashScreen .arm {
+  top: 0.5rem;
+  transform-origin: top center;
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+}
+#splashScreen .arm-below-container {
+  position: absolute;
+  top: 2.9rem;
+  height: 100%;
+  width: 100%;
+  transform-origin: top center;
+}
+#splashScreen .hand-left .arm {
+  animation:
+    armRotate1 0.3s 1s forwards,
+    armRotate2 0.3s 1.4s forwards,
+    armRotate3 0.3s 1.8s forwards,
+    armRotate6 0.3s 3.4s forwards,
+    armRotate7 0.3s 3.8s forwards;
+}
+#splashScreen .hand-right .arm {
+  animation:
+    armRotate4 1.2s 1.8s forwards,
+    armRotate5 0.3s 3s forwards;
+}
+#splashScreen .hand-left .arm-below-container {
+  animation:
+    forearmRotate1 0.3s 1s forwards,
+    forearmRotate2 0.3s 1.4s forwards,
+    forearmRotate3 0.3s 1.8s forwards,
+    forearmRotate6 0.3s 3.4s forwards,
+    forearmRotate7 0.3s 3.8s forwards;
+}
+#splashScreen .hand-right .arm-below-container {
+  animation:
+    forearmRotate4 1.2s 1.8s forwards,
+    forearmRotate5 0.3s 3s forwards;
+}
+#splashScreen .forearm {
+  top: 0;
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+}
+#splashScreen .wrist {
+  position: absolute;
+  top: 2.45rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1rem;
+  height: 0.7rem;
+  background: var(--color-primary);
+  border-radius: 1rem;
+}
+#splashScreen .finger-cover {
+  position: absolute;
+}
+#splashScreen .finger {
+  position: absolute;
+  top: 3.4rem;
+}
+#splashScreen .hand-right .finger {
+  transform: scaleX(-1);
+  left: auto;
+}
+#splashScreen .finger-pinky {
+  left: 0;
+}
+#splashScreen .finger-ring {
+  left: 0.4rem;
+}
+#splashScreen .finger-index {
+  left: 0.8rem;
+}
+#splashScreen .finger-thumb {
+  left: 1.3rem;
+  top: 3.3rem;
+}
+#splashScreen .hand-right .finger-pinky {
+  right: 0;
+}
+#splashScreen .hand-right .finger-ring {
+  right: 0.4rem;
+}
+#splashScreen .hand-right .finger-thumb {
+  right: 1.3rem;
+}
+#splashScreen .hand-right .finger-index {
+  right: 0.8rem;
+}
+#splashScreen .finger::before {
+  position: absolute;
+  top: 0;
+  width: 0.25rem;
+  border-radius: 2rem;
+  height: 0.5rem;
+  transform: rotate(5deg);
+  background: var(--color-primary);
+}
+#splashScreen .finger::after {
+  position: absolute;
+  top: 0.3rem;
+  width: 0.25rem;
+  border-radius: 2rem;
+  height: 0.5rem;
+  transform: rotate(-5deg);
+  background: var(--color-primary);
+}
+#splashScreen .finger-ring::before {
+  transform: rotate(8deg);
+}
+#splashScreen .finger-ring::after {
+  height: 0.6rem;
+  transform: rotate(-8deg);
+}
+#splashScreen .finger-index::before {
+  transform: rotate(5deg);
+}
+#splashScreen .finger-index::after {
+  height: 0.7rem;
+  transform: rotate(-4deg);
+}
+#splashScreen .finger-thumb::before {
+  transform: rotate(-20deg);
+}
+#splashScreen .finger-thumb::after {
+  transform: rotate(20deg);
+}
+/* Feet */
+#splashScreen .feet-container {
+  position: absolute;
+  bottom: 0;
+  height: 38%;
+  width: 100%;
+}
+#splashScreen .foot {
+  position: absolute;
+  top: -1rem;
+  height: calc(100% + 1rem);
+  width: 1rem;
+  transform-origin: top center;
+}
+#splashScreen .foot-left {
+  left: 30%;
+  animation: feetLeftJump 0.4s 4s ease-out forwards;
+}
+#splashScreen .foot-right {
+  right: 30%;
+  animation: feetRightJump 0.4s 4s ease-out forwards;
+}
+#splashScreen .thigh {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 45%;
+  background: var(--color-primary);
+  border-radius: 1px;
+}
+#splashScreen .leg {
+  position: absolute;
+  top: calc(45% + 0.3rem);
+  height: 55%;
+  width: 100%;
+  background: var(--color-primary);
+}
+#splashScreen .leg::before {
+  position: absolute;
+  top: 100%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+#splashScreen .leg-right::before {
+  left: 0;
+}
+#splashScreen .leg-left::before {
+  right: 0;
+  animation: legTap 0.5s 2;
+  transform-origin: right center;
+}
+/* Shadow */
+#splashScreen .shadow {
+  position: absolute;
+  top: calc(100% + 0.7rem);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  height: 1.2rem;
+  z-index: -1;
+}
+#splashScreen .shadow::after,
+#splashScreen .shadow::before {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: var(--color-shadow);
+}
+#splashScreen .shadow::before {
+  right: 50%;
+  border-radius: 1rem 0 0 1rem;
+  animation:
+    shadowWidth1 0.3s 1s forwards,
+    shadowWidth2 0.3s 1.4s forwards,
+    shadowWidth3 0.3s 1.8s forwards,
+    shadowWidth6 0.3s 3.4s forwards,
+    shadowWidth7 0.3s 3.8s forwards,
+    shadowWidth8 0.4s 4s forwards;
+}
+#splashScreen .shadow::after {
+  left: 50%;
+  border-radius: 0 1rem 1rem 0;
+  animation:
+    shadowWidth4 1.2s 1.8s forwards,
+    shadowWidth5 0.3s 3s forwards,
+    shadowWidth9 0.4s 4s forwards;
+}
+/* Animations */
+@keyframes legTap {
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(10deg);
+  }
+}
+@keyframes armRotate1 {
+  to {
+    transform: rotate(90deg);
+  }
+}
+@keyframes armRotate2 {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(100deg);
+  }
+}
+@keyframes armRotate3 {
+  from {
+    transform: rotate(100deg);
+  }
+  to {
+    transform: rotate(80deg);
+  }
+}
+@keyframes armRotate4 {
+  0% {
+    transform: rotate(0);
+  }
+  33% {
+    transform: rotate(-100deg);
+  }
+  66% {
+    transform: rotate(-80deg);
+  }
+  100% {
+    transform: rotate(-100deg);
+  }
+}
+@keyframes armRotate5 {
+  from {
+    transform: rotate(-100deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+@keyframes armRotate6 {
+  from {
+    transform: rotate(80deg);
+  }
+  to {
+    transform: rotate(100deg);
+  }
+}
+@keyframes armRotate7 {
+  from {
+    transform: rotate(100deg);
+  }
+  to {
+    transform: rotate(140deg);
+  }
+}
+@keyframes forearmRotate1 {
+  to {
+    transform: rotate(90deg) translate(-2.4rem, 2.4rem);
+  }
+}
+@keyframes forearmRotate2 {
+  from {
+    transform: rotate(90deg) translate(-2.4rem, 2.4rem);
+  }
+  to {
+    transform: rotate(80deg) translate(-3.2rem, 2.2rem);
+  }
+}
+@keyframes forearmRotate3 {
+  from {
+    transform: rotate(80deg) translate(-3.2rem, 2.2rem);
+  }
+  to {
+    transform: rotate(100deg) translate(-1.5rem, 3rem);
+  }
+}
+@keyframes forearmRotate4 {
+  0% {
+    transform: rotate(0);
+  }
+  33% {
+    transform: rotate(-80deg) translate(3.2rem, 2.2rem);
+  }
+  66% {
+    transform: rotate(-110deg) translate(1.1rem, 2.8rem);
+  }
+  100% {
+    transform: rotate(-80deg) translate(3.2rem, 2.2rem);
+  }
+}
+@keyframes forearmRotate5 {
+  from {
+    transform: rotate(-80deg) translate(3.2rem, 2.2rem);
+  }
+  to {
+    transform: rotate(0) translate(0, 0);
+  }
+}
+@keyframes forearmRotate6 {
+  from {
+    transform: rotate(100deg) translate(-1.5rem, 3rem);
+  }
+  to {
+    transform: rotate(80deg) translate(-3.2rem, 2.2rem);
+  }
+}
+@keyframes forearmRotate7 {
+  from {
+    transform-origin: top center;
+    transform: rotate(100deg);
+    top: 0.1rem;
+    right: 2.4rem;
+  }
+  to {
+    transform-origin: top center;
+    transform: rotate(500deg);
+    top: -1.4rem;
+    right: 1.5rem;
+  }
+}
+@keyframes shadowWidth1 {
+  to {
+    width: calc(60% + 4.5rem);
+  }
+}
+@keyframes shadowWidth2 {
+  from {
+    width: calc(60% + 4.5rem);
+  }
+  to {
+    width: calc(60% + 3rem);
+  }
+}
+@keyframes shadowWidth3 {
+  from {
+    width: calc(60% + 3rem);
+  }
+  to {
+    width: calc(60% + 2rem);
+  }
+}
+@keyframes shadowWidth4 {
+  0% {
+    width: 60%;
+  }
+  33% {
+    width: calc(60% + 5rem);
+  }
+  66% {
+    width: calc(60% + 3rem);
+  }
+  100% {
+    width: calc(60% + 5rem);
+  }
+}
+@keyframes shadowWidth5 {
+  from {
+    width: calc(60% + 5rem);
+  }
+  to {
+    width: 60%;
+  }
+}
+@keyframes shadowWidth6 {
+  from {
+    width: calc(60% + 2rem);
+  }
+  to {
+    width: calc(60% + 3rem);
+  }
+}
+@keyframes shadowWidth7 {
+  0% {
+    width: calc(60% + 3rem);
+  }
+  25% {
+    width: calc(60% + 1rem);
+  }
+  50% {
+    width: calc(60% + 2.5rem);
+  }
+  75% {
+    width: calc(60% + 1.5rem);
+  }
+  100% {
+    width: calc(60% + 2.9rem);
+  }
+}
+@keyframes shadowWidth8 {
+  0% {
+    width: calc(60% + 2.9rem);
+  }
+  50% {
+    width: calc(60% - 0.5rem);
+  }
+  100% {
+    width: calc(60% + 2.7rem);
+  }
+}
+@keyframes shadowWidth9 {
+  0% {
+    width: 60%;
+  }
+  50% {
+    width: calc(60% - 1rem);
+  }
+  100% {
+    width: calc(60% + 1.5rem);
+  }
+}
+@keyframes faceX1 {
+  to {
+    transform: translateX(-1rem);
+  }
+}
+@keyframes faceX2 {
+  from {
+    transform: translateX(-1rem);
+  }
+  to {
+    transform: translateX(1rem);
+  }
+}
+@keyframes faceX3 {
+  from {
+    transform: translateX(1rem);
+  }
+  to {
+    transform: translateX(-1rem);
+  }
+}
+
+/* =====================================
+   SIDSTE HOP – 50 % HØJERE
+===================================== */
+
+/* HOVED OG OVERKROP */
+
+@keyframes skeletonJump {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    /* Før: -6rem */
+    transform: translateY(-12rem);
+  }
+
+  100% {
+    transform: translateY(4.8rem);
+  }
+}
+
+/* VENSTRE BEN */
+
+@keyframes feetLeftJump {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    /* Før: -3rem */
+    transform: translateY(-5.5rem);
+  }
+
+  100% {
+    transform: translateY(5rem) rotate(90deg);
+  }
+}
+
+/* HØJRE BEN */
+
+@keyframes feetRightJump {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    /* Før: -3rem */
+    transform: translateY(-5.5rem);
+  }
+
+  100% {
+    transform: translateY(5rem) rotate(-90deg);
+  }
+}
+
+/* INTRO – MOBIL OG BRANDING */
+#splashScreen {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 0;
+  --color-primary: #fff8f1;
+  --color-secondary: #d8b8b5;
+  --color-tertiary: #4c0922;
+  --color-shadow: rgba(23, 0, 10, 0.22);
+  /* Dans: 4,5s + 0,8s på sidste stilling. */
+  animation: introSequenceComplete 5.3s linear both;
+}
+
+@keyframes introSequenceComplete {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#splashScreen .wrapper {
+  height: 100svh;
+  min-height: 480px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+#splashScreen .skeleton {
+  /* Originalen er 12rem bred: ca. 119px med denne skalering. */
+  transform: scale(0.62);
+}
+#splashScreen .splash-brand,
+#splashScreen .splash-bottom {
+  position: absolute;
+  z-index: 3;
+  left: 14px;
+  right: 14px;
+  text-align: center;
+  pointer-events: none;
+}
+#splashScreen .splash-brand {
+  top: max(15px, env(safe-area-inset-top));
+}
+#splashScreen .splash-brand img {
+  width: 92px;
+  max-height: 82px;
+  object-fit: contain;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 3px 12px #20030c66);
+}
+#splashScreen .splash-brand .eyebrow {
+  color: #ffe6ea;
+  font-size: 0.68rem;
+  margin: 0;
+}
+#splashScreen .splash-bottom {
+  bottom: max(18px, env(safe-area-inset-bottom));
+}
+#splashScreen .splash-bottom h1 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.55rem, 7vw, 2.5rem);
+  line-height: 1.13;
+  margin: 0 0 6px;
+  color: white;
+}
+#splashScreen .splash-bottom p {
+  font-size: 0.85rem;
+  color: #ffe2e9;
+  margin: 0;
+}
+@media (max-width: 600px) {
+  /* Ca. 104px bred på mobil – uden at ændre selve dansen. */
+  #splashScreen .skeleton {
+    transform: scale(0.54);
+  }
+  #splashScreen .splash-brand img {
+    width: 72px;
+    max-height: 59px;
+  }
+  #splashScreen .splash-bottom h1 {
+    font-size: 1.6rem;
+  }
+}
+@media (max-height: 650px) {
+  #splashScreen .skeleton {
+    transform: scale(0.47);
+  }
+  #splashScreen .splash-brand img {
+    width: 72px;
+    max-height: 59px;
+  }
+  #splashScreen .splash-bottom h1 {
+    font-size: 1.6rem;
+  }
+}
+@media (max-height: 500px) {
+  #splashScreen .skeleton {
+    transform: scale(0.4);
+  }
+  #splashScreen .splash-brand img {
+    width: 58px;
+    max-height: 45px;
+  }
+  #splashScreen .splash-bottom p {
+    display: none;
+  }
+}
