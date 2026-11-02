@@ -1,0 +1,146 @@
+/* ===========================================
+   KBH YNGLINGE
+   SKELETTETS TUNGE LANDING
+=========================================== */
+
+/* LÅS SIDEN MENS ANIMATIONEN KØRER */
+
+body.intro-locked {
+  overflow: hidden;
+}
+
+/* ===========================================
+   FORMULAREN TRÆKKES NED FRA TOPPEN
+=========================================== */
+
+#formScreen.form-dropping {
+  position: fixed;
+
+  inset: 0;
+  z-index: 40;
+
+  width: 100%;
+  height: 100svh;
+  min-height: 0;
+
+  margin: 0;
+  overflow: hidden;
+
+  background: var(--cream, #fffaf7);
+
+  /* GIVER FORMULAREN TYNGDE */
+
+  box-shadow: 0 16px 35px rgba(24, 0, 9, 0.42);
+
+  /* SELVE FALDANIMATIONEN */
+
+  animation: formRipDrop 1050ms both;
+
+  will-change: transform;
+
+  /* UJÆVN KANT – SOM REVET PAPIR */
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+
+    100% calc(100% - 21px),
+    95% calc(100% - 9px),
+    90% calc(100% - 18px),
+    83% calc(100% - 5px),
+    76% calc(100% - 17px),
+    68% calc(100% - 7px),
+    58% calc(100% - 19px),
+    48% calc(100% - 8px),
+    38% calc(100% - 21px),
+    28% calc(100% - 7px),
+    19% calc(100% - 19px),
+    10% calc(100% - 10px),
+    0 calc(100% - 19px)
+  );
+}
+
+/* ===========================================
+   DET TUNGE FALD
+=========================================== */
+
+@keyframes formRipDrop {
+  /* FORMULAREN ER OVER SKÆRMEN */
+
+  0% {
+    transform: translate3d(0, -110%, 0) rotate(-0.4deg);
+
+    animation-timing-function: cubic-bezier(0.13, 0.72, 0.42, 0.93);
+  }
+
+  /* DEN BEGYNDER AT BLIVE TRUKKET NED */
+
+  44% {
+    transform: translate3d(0, -72%, 0) rotate(0.35deg);
+
+    animation-timing-function: cubic-bezier(0.45, 0.03, 0.9, 0.7);
+  }
+
+  /* BOOM! HÅRD LANDING */
+
+  83% {
+    transform: translate3d(0, 2%, 0) rotate(-0.25deg);
+
+    animation-timing-function: ease-out;
+  }
+
+  /* LILLE TILBAGEHOP */
+
+  93% {
+    transform: translate3d(0, -0.9%, 0) rotate(0.1deg);
+  }
+
+  /* FORMULAREN FALDER HELT PÅ PLADS */
+
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+/* ===========================================
+   STØD NÅR SKELETTET LANDER
+=========================================== */
+
+#splashScreen.has-impact .wrapper {
+  animation: skeletonImpact 300ms ease-out both;
+}
+
+/* DET LILLE JORDSKÆLV */
+
+@keyframes skeletonImpact {
+  0% {
+    transform: translateY(0);
+  }
+
+  18% {
+    transform: translateY(7px);
+  }
+
+  45% {
+    transform: translateY(-3px);
+  }
+
+  70% {
+    transform: translateY(2px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ===========================================
+   TILGÆNGELIGHED
+=========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  #formScreen.form-dropping,
+  #splashScreen.has-impact .wrapper {
+    animation: none !important;
+  }
+}
